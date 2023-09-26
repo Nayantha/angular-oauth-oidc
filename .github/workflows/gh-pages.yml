@@ -21,3 +21,10 @@ jobs:
         uses: npm install
       - name: Build Angular Site
         uses: npm run build -- --base-href https://${{github.actor}}.github.io/${{github.event.repository.name}}/
+      - name: Deploy to gh-pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{github.event.repository.name}}
+          enable_jekyll: true
