@@ -20,4 +20,4 @@ jobs:
       - name: Install dependencies
         uses: npm install
       - name: Build Angular Site
-        uses: npm run build --base-href https://${{github.actor}}.github.io/${{github.event.repository.name}}/
+        uses: npm run build -- --base-href https://${{github.actor}}.github.io/${{github.event.repository.name}}/
